@@ -2,7 +2,11 @@
 # nodejs 20 hangs on build with armv6/armv7
 FROM docker.io/library/node:18 AS build_node_modules
 
-RUN apt install wireguard wireguard-tools resolvconf -y
+RUN apt update && apt install -y \
+    software-properties-common && \
+    add-apt-repository ppa:wireguard/wireguard && \
+    apt update && apt install -y \
+    wireguard wireguard-tools resolvconf
 
 RUN apt update && apt upgrade -y
 
