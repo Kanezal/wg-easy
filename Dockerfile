@@ -6,7 +6,7 @@ FROM docker.io/library/node:18 AS build_node_modules
 RUN apt update && apt upgrade
 
 # Update npm to latest
-RUN npm install -g npm@latest
+RUN npm install -g npm@latest -y
 
 # Copy Web UI
 COPY src /app
