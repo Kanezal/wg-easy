@@ -3,10 +3,10 @@
 FROM docker.io/library/node:18 AS build_node_modules
 
 
-RUN apt update && apt upgrade
+RUN apt update && apt upgrade -y
 
 # Update npm to latest
-RUN npm install -g npm@latest -y
+RUN npm install -g npm@latest
 
 # Copy Web UI
 COPY src /app
